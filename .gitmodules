@@ -1,4 +1,4 @@
 [submodule "llvm"]
 	path = llvm
-	url = git://github.com/llvm-mirror/llvm.git
-	branch = release_34
+	url = git://github.com/big-tool-brewery/llvm.git
+	branch = release_34_btb
