@@ -5,6 +5,7 @@ def test_cmake
   end
 end
 
+desc 'Build and install LLVM'
 task :llvm do
   test_cmake
   Dir.mkdir 'build' unless Dir.exists? 'build'
@@ -18,6 +19,7 @@ task :llvm do
   end
 end
 
+desc 'Build and install OCLint'
 task :oclint do
   Dir.chdir 'oclint/oclint-scripts' do |oclint_scripts_dir|
     sh('./makeWithExternClang ' + File.expand_path('../../build/llvm/install_dir'))
