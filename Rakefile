@@ -1,3 +1,5 @@
+#OCLint needs to be built using CMake, and the version of LLVM it depends on also needs to to have been built using CMake
+
 def test_cmake
   if `which cmake`.strip.empty?
     p 'You need to have cmake installed. Use `brew install cmake` to grab it.'
@@ -24,4 +26,10 @@ task :oclint do
   Dir.chdir 'oclint/oclint-scripts' do |oclint_scripts_dir|
     sh('./makeWithExternClang ' + File.expand_path('../../build/llvm/install_dir'))
   end
+end
+
+task :distribution do
+  require 'FileUtils'
+
+  FileUtils.cp 'build/llvm/install_dir/bin/clang-format', 'distribution/'
 end
